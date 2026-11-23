@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOVA</title>
+<meta name="description" content="NOVA, l’organisation scolaire pensée pour les lycéens.">
+<meta name="theme-color" content="#5C1A2E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NOVA">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app"><nav class="sb" id="sb"></nav><main id="main"></main><nav class="bn" id="bn"></nav></div>
+<div id="mod" onclick="if(event.target===this)cm()"></div>
+<div id="toast" role="status"></div>
+<noscript>NOVA a besoin de JavaScript pour fonctionner.</noscript>
+<script src="actions.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
