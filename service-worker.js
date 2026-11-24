@@ -1,8 +1,8 @@
-// Augmenter VERSION à chaque mise en ligne pour forcer la mise à jour du cache.
-const VERSION = "nova-v2";
-const SHELL = ["./", "index.html", "style.css", "actions.js", "script.js", "manifest.json",
-  "assets/favicon.svg", "assets/icon-192.png", "assets/icon-512.png",
-  "assets/icon-maskable-512.png", "assets/apple-touch-icon.png"];
+// Augmenter VERSION à chaque mise en ligne pour que les appareils récupèrent la nouvelle version.
+const VERSION = "nova-v3";
+const SHELL = ["./", "index.html", "style.css", "script.js", "manifest.json",
+  "js/core.js", "js/ui.js", "js/v-home-tasks.js", "js/v-plan.js", "js/v-rewards-grades.js", "js/v-focus-progress.js", "js/v-more.js",
+  "assets/favicon.svg", "assets/icon-192.png", "assets/icon-512.png", "assets/icon-maskable-512.png", "assets/apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -16,8 +16,7 @@ self.addEventListener("fetch", e => {
   const r = e.request;
   if (r.method !== "GET") return;
   const u = new URL(r.url);
-  if (u.pathname === "/chat" || u.pathname.startsWith("/.netlify/")) return; // jamais en cache
-  if (r.mode === "navigate") { // page : réseau d’abord, cache si hors ligne
+  if (r.mode === "navigate") { // page : réseau d'abord, cache si hors ligne
     e.respondWith(fetch(r).then(x => { const c = x.clone(); caches.open(VERSION).then(h => h.put("index.html", c)); return x; })
       .catch(() => caches.match("index.html")));
     return;

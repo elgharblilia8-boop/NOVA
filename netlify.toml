@@ -1,9 +1,6 @@
+# Site 100 % statique : aucun serveur, aucune fonction, aucune clé.
 [build]
-  publish = "public"
-  functions = "netlify/functions"
-
-[functions]
-  node_bundler = "esbuild"
+  publish = "."
 
 [[headers]]
   for = "/service-worker.js"
