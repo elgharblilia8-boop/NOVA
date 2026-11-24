@@ -1,6 +1,6 @@
 # Site 100 % statique : aucun serveur, aucune fonction, aucune clé.
 [build]
-  publish = "."
+  publish = "public"
 
 [[headers]]
   for = "/service-worker.js"
